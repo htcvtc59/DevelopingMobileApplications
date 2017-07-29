@@ -1,0 +1,1 @@
+c:\users\macos\documents\visual studio 2015\Projects\WPRSSReader\WPRSSReader\WPRSSReader.csproj;neutral

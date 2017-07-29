@@ -1,0 +1,71 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SqlLiteWinPhone.AddNewContact"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}">
+                <Run Text="Contact Manager"/>
+                <LineBreak/>
+                <Run/>
+            </TextBlock>
+            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Height="57" FontSize="36">
+                <Run Text="Add Contact"/>
+                <LineBreak/>
+                <Run/>
+            </TextBlock>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <phone:Pivot Margin="0,-29,0,0">
+                <phone:PivotItem Header="AddContact">
+                    <Grid Margin="-1,9,1,-9">
+                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="38,38,0,0" TextWrapping="Wrap" Text="Contact Name" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="textBlock_Copy" Text="Phone Number" HorizontalAlignment="Left" Margin="45,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="72" Margin="-2,66,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="456"/>
+                        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="72" Margin="-1,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+                        <Button x:Name="btnAddNew" Click="btnAddNew_Click" Content="Add New&#xD;&#xA;" HorizontalAlignment="Left" Margin="20,264,0,0" VerticalAlignment="Top" Height="77"/>
+
+                    </Grid>
+                </phone:PivotItem>
+                <phone:PivotItem Header="AddMessage" Margin="12,5,12,0">
+                    <StackPanel>
+                        <toolkit:ListPicker x:Name="listContact">
+                            <toolkit:ListPicker.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <toolkit:ListPickerItem Content="{Binding name}"  />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </toolkit:ListPicker.ItemTemplate>
+                        </toolkit:ListPicker>
+                        <TextBox x:Name="txtMes" HorizontalAlignment="Left" Height="72" Margin="-1,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="431"/>
+                        <Button Content="Add Mes" Click="btnAddMes_Click" Height="72" x:Name="btnAddMes"/>
+                    </StackPanel>
+                </phone:PivotItem>
+            </phone:Pivot>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

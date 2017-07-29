@@ -1,0 +1,1 @@
+C:\Users\MacOS\Documents\Visual Studio 2015\Projects\SqlLiteWinPhone\SqlLiteWinPhone\SqlLiteWinPhone.csproj;neutral
